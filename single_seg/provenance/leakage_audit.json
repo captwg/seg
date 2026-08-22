@@ -1,0 +1,75 @@
+{
+  "release_sample_gate": "PASS_NO_EXACT_OR_SCREENED_NEAR_DUPLICATE_WITH_SEGMENTATION_TRAIN_VAL",
+  "historical_source_split_gate": "FAIL_EXACT_DUPLICATES_EXIST_IN_ORIGINAL_COCO_SPLITS",
+  "interpretation": "The six packaged images are clean release samples. Historical full-test metrics from this checkpoint must not be described as globally leak-free because the source COCO manifests contain four cross-split exact-content collisions.",
+  "segmentation_source_manifests": {
+    "train": {
+      "images": 2612,
+      "unique_actual_sha256": 2611,
+      "json_sha256": "2bebdf504b9dbbb41e5b5856cad30e235262720bb16a1e75105c2758937bdb68"
+    },
+    "val": {
+      "images": 331,
+      "unique_actual_sha256": 331,
+      "json_sha256": "ccc0ad36f27511abaccfa30cba7ef60b39a8188bb9836444224d401686fb6e59"
+    },
+    "test": {
+      "images": 334,
+      "unique_actual_sha256": 334,
+      "json_sha256": "b0564cd742faf610f095863c1bd7147cb7f27b75b65849b3ba9f194eb5fc3ac7"
+    }
+  },
+  "historical_exact_content_overlap": {
+    "train_val": {
+      "count": 1,
+      "sha256": [
+        "60e4c9199a407e759f6e2efc47d9b9fb043fe78d5ad727593b1aa889992a7139"
+      ]
+    },
+    "train_test": {
+      "count": 3,
+      "sha256": [
+        "3e904495beb8f6d344216caa0d811b12ca760a12fd67fd595fb887841dc04cd3",
+        "a18d301f2e2565ffae19a87452d4459d531b251aea2f96e2ac9bdbc68e1bee6f",
+        "b4044b2247f2b0bf5800e4e4588e9cc27df297d27a26c761cbf7f95403d012af"
+      ]
+    },
+    "val_test": {
+      "count": 0,
+      "sha256": []
+    }
+  },
+  "release_sample_selection": {
+    "candidate_pool": "intersection of segmentation test and ranking frozen test",
+    "candidate_count": 75,
+    "selected_count": 6,
+    "selection_uses_model_predictions_or_scores": false,
+    "selection_reason": "two samples per source with strong minimum perceptual-hash separation from every segmentation train/val image and distinct ranking split groups",
+    "exact_sha256_overlap_with_segmentation_train_val": 0,
+    "ranking_train_overlap_by_sha256": 0,
+    "ranking_train_overlap_by_near_duplicate_group": 0,
+    "minimum_phash64_hamming_to_segmentation_train_val": 17,
+    "minimum_dhash64_hamming_to_segmentation_train_val": 15,
+    "minimum_joint_hamming_to_same_train_val_reference": 37,
+    "perceptual_hash_note": "Perceptual hashes are a conservative screening heuristic, not a mathematical proof of semantic independence. Exact SHA256 and the ranking model's near-duplicate groups are also enforced."
+  },
+  "package_content_gates": {
+    "contains_training_images": false,
+    "contains_validation_images": false,
+    "contains_annotations_or_ground_truth": false,
+    "contains_train_val_test_coco_json": false,
+    "contains_training_dataset_absolute_path_in_runtime_config": false,
+    "contains_augmented_scoring_model": false
+  },
+  "frozen_artifacts": {
+    "segmentation_checkpoint": {
+      "file": "weights/model_0059999.pth",
+      "iteration": 59999,
+      "sha256": "0f9cf0d7f977fcb6c5b6a3b7551bfe8b1983e38eefbbb512c7bad753465c1b4b"
+    },
+    "non_augmented_ranker": {
+      "file": "../rank/models/hierarchical_46_fixed_ranker.joblib",
+      "sha256": "49e4c31a4614d08efcde6ccbb4ef5eecd76062daf6f8690ec8243ff19a21e04c"
+    }
+  }
+}

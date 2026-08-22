@@ -1,0 +1,44 @@
+{
+  "status": "PASS_PACKAGE_WITH_DISCLOSED_HISTORICAL_SPLIT_CONTAMINATION",
+  "created_on": "2026-08-20",
+  "artifacts": {
+    "non_augmented_ranker_sha256": "49e4c31a4614d08efcde6ccbb4ef5eecd76062daf6f8690ec8243ff19a21e04c",
+    "segmentation_checkpoint_sha256": "0f9cf0d7f977fcb6c5b6a3b7551bfe8b1983e38eefbbb512c7bad753465c1b4b",
+    "segmentation_checkpoint_iteration": 59999,
+    "segmentation_checkpoint_model_tensors": 716
+  },
+  "ranker_smoke_test": {
+    "status": "PASS",
+    "images": 6,
+    "finite_scores_in_0_100": true,
+    "minimum_score": 32.56879910213244,
+    "maximum_score": 73.39753086419753
+  },
+  "segmentation_smoke_test": {
+    "status": "PASS",
+    "device": "NVIDIA GeForce RTX 3090",
+    "images": 6,
+    "score_threshold": 0.5,
+    "instance_counts_in_filename_order": [46, 44, 44, 46, 45, 45],
+    "outputs_verified": ["instances.npz", "instance_ids.png", "overlay.png", "json", "summary.json"]
+  },
+  "release_content_gates": {
+    "non_augmented_ranker_only": true,
+    "checkpoint_matches_formal_step59999": true,
+    "model_structure_code_present": true,
+    "preprocessing_code_present": true,
+    "inference_script_present": true,
+    "six_test_images_present": true,
+    "annotations_absent": true,
+    "training_and_validation_images_absent": true,
+    "training_dataset_absolute_paths_absent_from_runtime_code_and_config": true,
+    "sample_exact_overlap_with_segmentation_train_val": 0,
+    "sample_overlap_with_ranking_train_or_near_duplicate_groups": 0
+  },
+  "historical_split_warning": {
+    "status": "FAIL_ORIGINAL_COCO_SPLIT_IS_NOT_GLOBALLY_LEAK_FREE",
+    "train_val_exact_content_collisions": 1,
+    "train_test_exact_content_collisions": 3,
+    "effect": "The packaged samples are clean, but historical full-test metrics for this checkpoint must not be advertised as completely leak-free."
+  }
+}

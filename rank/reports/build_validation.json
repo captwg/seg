@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "target_count": 46,
+  "weights": {
+    "segmentation": 0.4,
+    "individual_clarity": 0.22,
+    "morphology_distribution": 0.14,
+    "gray_visibility": 0.1,
+    "focus": 0.06,
+    "background_illumination": 0.06,
+    "acquisition_spec": 0.02
+  },
+  "training_reference_images": 4455,
+  "heldout_images": 1271,
+  "dataset_20260730_images": 60,
+  "model_sha256": "49e4c31a4614d08efcde6ccbb4ef5eecd76062daf6f8690ec8243ff19a21e04c",
+  "heldout_scores_sha256": "5418ea80ab01991f755009eaa58f67e2dfb1f5c13eb6c8b6ef7ca8129b1e1e4d",
+  "dataset_20260730_scores_sha256": "bd0afa9636d718792dcf0ba1d693f5cdc3017627c397838de6566299e4c559ef",
+  "gates": {
+    "weights_sum_to_one": true,
+    "priority_is_strictly_ordered_except_requested_tie": true,
+    "training_reference_count_4455": true,
+    "heldout_count_1271": true,
+    "dataset_20260730_count_60": true,
+    "dataset_20260730_split_is_48_train_12_test": true,
+    "score_equals_sum_of_weighted_components": true,
+    "all_scores_finite_0_100": true
+  }
+}

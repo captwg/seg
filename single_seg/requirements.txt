@@ -1,0 +1,7 @@
+# PyTorch, torchvision and Detectron2 must match the CUDA runtime.
+numpy
+opencv-python
+scipy
+torch
+torchvision
+detectron2
